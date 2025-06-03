@@ -7,4 +7,11 @@ export class PeopleAccount extends DioAccount {
     super(name, accountNumber)
     this.doc_id = doc_id
   }
+
+  override deposit = (): void => {
+    if(this.validateStatus(this.valorSolicitado)){
+      this.balance = this.balance + this.valorSolicitado + 10
+      console.log('Voce depositou')
+    }
+  }
 }
